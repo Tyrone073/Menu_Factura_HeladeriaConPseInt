@@ -1,4 +1,3 @@
-
 Algoritmo Menu_FacturaHeladeria
 	Escribir 'Bienbenid@s a la heladeria A'
 	Escribir 'Este es nuestro Menu'
@@ -16,8 +15,7 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir 'BEBIDAS FRIAS'
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
-	
-	Dimension prdt[10]
+	Dimensionar prdt(10)
 	prdt[1] <- 1.5
 	prdt[2] <- 2.8
 	prdt[3] <- 3.5
@@ -28,28 +26,31 @@ Algoritmo Menu_FacturaHeladeria
 	prdt[8] <- 2
 	prdt[9] <- 3
 	prdt[10] <- 2
-	
-	
-	total = 0
-	//Definir pregunta Como Lógico
+	total <- 0
+	Definir pregunta Como Cadena
 	Repetir
 		Escribir 'Que desea ordenar?'
-		
 		Escribir 'indice del producto'
 		Leer producto
-		
 		Escribir 'cantidad'
 		Leer cantidad
-		
 		ProductoBuscado <- prdt[producto]
-		operacion1 <- ProductoBuscado * cantidad
-		
-		total = total + operacion1
-		Escribir "hasta ahora cuenta con  un valor total: $", total
-		
+		operacion1 <- ProductoBuscado*cantidad
+		total <- total+operacion1
+		Escribir 'hasta ahora cuenta con  un valor total: $', total
 		Escribir 'desea algo mas?'
 		Leer pregunta
-		
-	Hasta Que pregunta = Falso//'no' | ' '| ''
-	Escribir "su factura es:" ,total
+	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
+	Escribir 'su factura es:', total
+	Escribir 'les gustaria dejarnos una propina?'
+	Leer preguntaPropina
+	Definir preguntaPropina Como Caracter
+	Según preguntaPropina='si' Hacer
+		opcion_1:
+			Escribir 'muchas gracias qui un regalo'
+		opcion_2:
+			Escribir 'muchas gracias usted participara en nuestro sorteo'
+		De Otro Modo:
+			Escribir 'muchas gracias'
+	FinSegún
 FinAlgoritmo
