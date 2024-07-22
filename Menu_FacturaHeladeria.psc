@@ -1,29 +1,3 @@
-Función orden <- Factura(producto,cantidad)
-
-	Dimension prdt[10]
-	prdt[1] <- 1.5
-	prdt[2] <- 2.8
-	prdt[3] <- 3.5
-	prdt[4] <- 4.8
-	prdt[5] <- 1.5
-	prdt[6] <- 3.25
-	prdt[7] <- 0.5
-	prdt[8] <- 2
-	prdt[9] <- 3
-	prdt[10] <- 2
-
-	ProductoBuscado <- prdt[producto]
-
-	operacion1 <- ProductoBuscado * cantidad
-	
-	Escribir operacion1
-FinFunción
-
-Funcion suma <- totalFactura(fa1,operacion1)
-	
-	Escribir fa1 + operacion1
-	
-FinFuncion
 
 Algoritmo Menu_FacturaHeladeria
 	Escribir 'Bienbenid@s a la heladeria A'
@@ -43,17 +17,39 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
 	
-	total <- 0
+	Dimension prdt[10]
+	prdt[1] <- 1.5
+	prdt[2] <- 2.8
+	prdt[3] <- 3.5
+	prdt[4] <- 4.8
+	prdt[5] <- 1.5
+	prdt[6] <- 3.25
+	prdt[7] <- 0.5
+	prdt[8] <- 2
+	prdt[9] <- 3
+	prdt[10] <- 2
+	
+	
+	total = 0
 	//Definir pregunta Como Lógico
 	Repetir
 		Escribir 'Que desea ordenar?'
+		
 		Escribir 'indice del producto'
 		Leer producto
+		
 		Escribir 'cantidad'
 		Leer cantidad
-		total <- total + Factura(producto,cantidad)
+		
+		ProductoBuscado <- prdt[producto]
+		operacion1 <- ProductoBuscado * cantidad
+		
+		total = total + operacion1
+		Escribir "hasta ahora cuenta con  un valor total: $", total
+		
 		Escribir 'desea algo mas?'
 		Leer pregunta
+		
 	Hasta Que pregunta = Falso//'no' | ' '| ''
-	Escribir "su factura es:" , total
+	Escribir "su factura es:" ,total
 FinAlgoritmo
