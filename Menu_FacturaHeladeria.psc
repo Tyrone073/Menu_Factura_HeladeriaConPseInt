@@ -15,7 +15,7 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir 'BEBIDAS FRIAS'
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
-	Dimensionar prdt(10)
+	Dimensionar prdt(10) // esto es un arreglo
 	prdt[1] <- 1.5
 	prdt[2] <- 2.8
 	prdt[3] <- 3.5
@@ -27,7 +27,6 @@ Algoritmo Menu_FacturaHeladeria
 	prdt[9] <- 3
 	prdt[10] <- 2
 	total <- 0
-	Definir pregunta Como Cadena
 	Repetir
 		Escribir 'Que desea ordenar?'
 		Escribir 'indice del producto'
@@ -42,15 +41,25 @@ Algoritmo Menu_FacturaHeladeria
 		Leer pregunta
 	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
 	Escribir 'su factura es:', total
-	Escribir 'les gustaria dejarnos una propina?'
-	Leer preguntaPropina
-	Definir preguntaPropina Como Caracter
-	Según preguntaPropina='si' Hacer
-		opcion_1:
+
+	Según total >= 1 Hacer
+		valorPropina >= 10 & valorPropina <= 20 :
 			Escribir 'muchas gracias qui un regalo'
-		opcion_2:
-			Escribir 'muchas gracias usted participara en nuestro sorteo'
+		valorPropina >= 21 & valorPropina <= 40 :
+			Escribir 'muchas gracias, si usted logra resolver estos ejercicios se llaba dos eleados a su elecccion'
+			Para variable_numerica<-valor_inicial Hasta valor_final Con Paso paso Hacer
+				secuencia_de_acciones
+			Fin Para
+		valorPropina >= 41 & valorPropina <= 100 :
+			Escribir 'Muchas gracias, usted participara por el sorteo de X, diga un numero del 1 al 30'
+			Leer numeroAzar
+			numCorrecto = azar(30)+1
+			si numeroAzar <> numCorrecto Entonces
+				Escribir 'q lastima usted no dio con el numero correcto'
+			SiNo
+				Escribir 'Felicidades Usted a sido acreditadro a X'
+			FinSi
 		De Otro Modo:
-			Escribir 'muchas gracias'
+			Escribir 'muchas gracias Por su compra'
 	FinSegún
 FinAlgoritmo
