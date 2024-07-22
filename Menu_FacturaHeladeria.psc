@@ -15,16 +15,26 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir 'BEBIDAS FRIAS'
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
-	prdt1 <- 1.5
-	prdt2 <- 2.8
-	prdt3 <- 3.5
-	prdt4 <- 4.8
-	prdt5 <- 1.5
-	prdt6 <- 3.25
-	prdt7 <- 0.5
-	prdt8 <- 2
-	prdt9 <- 3
-	prdt10 <- 2
+	
+	Dimension prdt[10]
+	prdt[1] <- 1.5
+	prdt[2] <- 2.8
+	prdt[3] <- 3.5
+	prdt[4] <- 4.8
+	prdt[5]<- 1.5
+	prdt[6] <- 3.25
+	prdt[7] <- 0.5
+	prdt[8] <- 2
+	prdt[9]<- 3
+	prdt[10] <- 2
+	
 	Escribir 'Que desea ordenar?'
-	Leer lista_de_variables
+	Leer Pedido
+	cant = 0
+	
+	Para i <-1 Hasta 10 Con Paso 1 Hacer
+		Escribir prdt[Pedido]
+	FinPara
+
+
 FinAlgoritmo
