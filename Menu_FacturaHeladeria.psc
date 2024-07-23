@@ -41,25 +41,25 @@ Algoritmo Menu_FacturaHeladeria
 		Leer pregunta
 	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
 	Escribir 'su factura es:', total
+	
+	//cupon de descuento a vase de un numero al azar
+	Dimensionar descuento[4]
+	Escribir "Estos son sus 4 descuentos, escoja uno de ellos: "
+	Para numeroA = 1 Hasta 4 Con Paso 1 Hacer
+		
+		numeroB = azar(9) + 1
+		descuento[numeroA] = numeroA * numeroB * 5
+        Escribir "Descuento ", numeroA, ": ", descuento[numeroA]
+		
+	Fin Para
+	Leer cuponSeleccionado
+	Si cuponSeleccionado <> descuento[4]  Entonces
+		Escribir "ese valor no es un cupon de descuento asignado"
+	SiNo
+		
+		facturaTotal <- factura/descuento[cuponSeleccionado] 
+		Escribir "su monto a pagar es:", facturaTotal
+	FinSi
 
-	Según total >= 1 Hacer
-		valorPropina >= 10 & valorPropina <= 20 :
-			Escribir 'muchas gracias qui un regalo'
-		valorPropina >= 21 & valorPropina <= 40 :
-			Escribir 'muchas gracias, si usted logra resolver estos ejercicios se llaba dos eleados a su elecccion'
-			Para variable_numerica<-valor_inicial Hasta valor_final Con Paso paso Hacer
-				secuencia_de_acciones
-			Fin Para
-		valorPropina >= 41 & valorPropina <= 100 :
-			Escribir 'Muchas gracias, usted participara por el sorteo de X, diga un numero del 1 al 30'
-			Leer numeroAzar
-			numCorrecto = azar(30)+1
-			si numeroAzar <> numCorrecto Entonces
-				Escribir 'q lastima usted no dio con el numero correcto'
-			SiNo
-				Escribir 'Felicidades Usted a sido acreditadro a X'
-			FinSi
-		De Otro Modo:
-			Escribir 'muchas gracias Por su compra'
-	FinSegún
+
 FinAlgoritmo
