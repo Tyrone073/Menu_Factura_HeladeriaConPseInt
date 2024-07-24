@@ -16,8 +16,8 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
 	Dimensionar prdt(10)
-	prdt[1] <- 1.5 // esto es un arreglo
-	prdt[2] <- 2.8
+	prdt[1] <- 1.5
+	prdt[2] <- 2.8 // esto es un arreglo
 	prdt[3] <- 3.5
 	prdt[4] <- 4.8
 	prdt[5] <- 1.5
@@ -40,20 +40,25 @@ Algoritmo Menu_FacturaHeladeria
 		Escribir 'desea algo mas?'
 		Leer pregunta
 	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
-	Escribir 'su factura es:', total
-	// cupon de descuento a vase de un numero al azar
+	Escribir 'Su factura es:', total, '$'
+	// 4 cupone de descuentos a vase de un numero al azar
 	Dimensionar descuento(4)
+	Escribir 'Por motivos de la inaguracion '
 	Escribir 'Estos son sus 4 descuentos, escoja uno de ellos: '
 	Para numeroA<-1 Hasta 4 Con Paso 1 Hacer
 		numeroB <- azar(9)+1
-		descuento[numeroA] <- numeroA*numeroB*5
-		Escribir 'Descuento ', numeroA, ': ', descuento[numeroA]
+		descuento[numeroA] <- redon(numeroA*numeroB*2.7)
+		Escribir 'Descuento ', numeroA, ': ', descuento[numeroA], '%'
 	FinPara
 	Leer cuponSeleccionado
-	Mientras cuponSeleccionado <> descuento[4] Hacer
-		Escribir 'ese valor no es un cupon de descuento asignado'
+	Mientras cuponSeleccionado<>descuento[1] Hacer
+		Escribir 'Ese valor no es un cupon de descuento asignado'
+		Escribir 'Escriba un valor designado'
+		Leer cuponSeleccionado1
+		cuponSeleccionado = cuponSeleccionado1
 	FinMientras
-	facturaTotal <- factura/cuponSeleccionado
-	Escribir 'su monto a pagar es:', facturaTotal
-	
+	descuentoTotal <- cuponSeleccionado/100
+	facturaTotal <- total*descuentoTotal
+	Escribir 'Con su Descuento del:', cuponSeleccionado, '% su monto a pagar es:', facturaTotal, '$'
+	Escribir 'Muchas gracias por su compra'
 FinAlgoritmo
