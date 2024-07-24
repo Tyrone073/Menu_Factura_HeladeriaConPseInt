@@ -26,40 +26,42 @@ Algoritmo Menu_FacturaHeladeria
 	prdt[8] <- 2
 	prdt[9] <- 3
 	prdt[10] <- 2
-	total <- 0
+	total <- 0 //Variable para iniciar y guardar el precio de una cantidad de un producto.
 	Repetir
-		Escribir 'Que desea ordenar?'
-		Escribir 'indice del producto'
-		Leer producto //por cuestion de no agregarle dificultatd a mis compañeros no agregare una validacion en esta parte
-		Escribir 'cantidad'
+		Escribir 'Buenos días, ¿qué desea ordenar?'
+		Escribir 'Escriba el indice del producto'
+		Leer producto
+		Escribir '¿Cuánto va a llevar?'
 		Leer cantidad
 		ProductoBuscado <- prdt[producto]
-		operacion1 <- ProductoBuscado*cantidad
-		total <- total+operacion1
-		Escribir 'hasta ahora cuenta con  un valor total: $', total
-		Escribir 'desea algo mas?'
+		costoTotal <- ProductoBuscado*cantidad
+		total <- total+costoTotal
+		Escribir 'Hasta ahora, cuenta con un valor total de: $', total
+		Escribir 'Desea algo más?'
 		Leer pregunta
 	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
 	Escribir 'Su factura es:', total, '$'
 	// 4 cupone de descuentos a vase de un numero al azar
 	
-	Escribir 'Por motivos de la inaguracion '
-	Escribir 'Estos son sus 4 descuentos, escoja uno de ellos: '
+	Escribir 'Con motivo de la inauguración, ofrecemos descuentos de hasta el 97% dependiendo de su suerte.'
+	Escribir ' A continuación, se presentan sus 4 descuentos disponibles.'
 	Dimensionar descuento(4)
 	Para numeroA<-1 Hasta 4 Con Paso 1 Hacer
 		numeroB <- azar(9)+1
 		descuento[numeroA] <- redon(numeroA*numeroB*2.7)
 		Escribir 'Descuento ', numeroA, ': ', descuento[numeroA], '%'
 	FinPara
+	Escribir 'Escoja uno de ellos:'
 	Leer cuponSeleccionado
 	Mientras cuponSeleccionado<>descuento[1] & cuponSeleccionado<>descuento[2] & cuponSeleccionado<>descuento[3] &cuponSeleccionado<>descuento[4] Hacer
-		Escribir 'Ese valor no es un cupon de descuento asignado'
-		Escribir 'Escriba un valor designado'
+		Escribir 'Ese valor no corresponde a un cupón de descuento asignado.'
+		Escribir 'Escriba un valor válido.'
 		Leer cuponSeleccionado1
 		cuponSeleccionado = cuponSeleccionado1
 	FinMientras
-	descuentoTotal <- cuponSeleccionado/100
-	facturaTotal <- total*descuentoTotal
-	Escribir 'Con su Descuento del:', cuponSeleccionado, '% su monto a pagar es:', facturaTotal, '$'
-	Escribir 'Muchas gracias por su compra'
+	cuponDescuento <- cuponSeleccionado/100
+	descuentoTotal <- total*cuponDescuento
+	facturaTotal = total-descuentoTotal
+	Escribir 'Con su descuento del: ', cuponSeleccionado, '% su monto a pagar es:', facturaTotal, '$'
+	Escribir 'Muchas gracias por su compra.'
 FinAlgoritmo
