@@ -15,9 +15,9 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir 'BEBIDAS FRIAS'
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
-	Dimensionar prdt(10)
+	Dimensionar prdt(10)// esto es un arreglo
 	prdt[1] <- 1.5
-	prdt[2] <- 2.8 // esto es un arreglo
+	prdt[2] <- 2.8 
 	prdt[3] <- 3.5
 	prdt[4] <- 4.8
 	prdt[5] <- 1.5
@@ -30,7 +30,7 @@ Algoritmo Menu_FacturaHeladeria
 	Repetir
 		Escribir 'Que desea ordenar?'
 		Escribir 'indice del producto'
-		Leer producto
+		Leer producto //por cuestion de no agregarle dificultatd a mis compañeros no agregare una validacion en esta parte
 		Escribir 'cantidad'
 		Leer cantidad
 		ProductoBuscado <- prdt[producto]
@@ -42,16 +42,17 @@ Algoritmo Menu_FacturaHeladeria
 	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
 	Escribir 'Su factura es:', total, '$'
 	// 4 cupone de descuentos a vase de un numero al azar
-	Dimensionar descuento(4)
+	
 	Escribir 'Por motivos de la inaguracion '
 	Escribir 'Estos son sus 4 descuentos, escoja uno de ellos: '
+	Dimensionar descuento(4)
 	Para numeroA<-1 Hasta 4 Con Paso 1 Hacer
 		numeroB <- azar(9)+1
 		descuento[numeroA] <- redon(numeroA*numeroB*2.7)
 		Escribir 'Descuento ', numeroA, ': ', descuento[numeroA], '%'
 	FinPara
 	Leer cuponSeleccionado
-	Mientras cuponSeleccionado<>descuento[1] Hacer
+	Mientras cuponSeleccionado<>descuento[1] & cuponSeleccionado<>descuento[2] & cuponSeleccionado<>descuento[3] &cuponSeleccionado<>descuento[4] Hacer
 		Escribir 'Ese valor no es un cupon de descuento asignado'
 		Escribir 'Escriba un valor designado'
 		Leer cuponSeleccionado1
