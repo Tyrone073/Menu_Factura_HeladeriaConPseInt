@@ -1,5 +1,5 @@
-Algoritmo Menu_FacturaHeladeria
-	Escribir 'Bienbenid@s a la heladeria A'
+Algoritmo Menu_Factura_Descuento_Heladeria
+	Escribir 'Bienvenid@ a la heladeria A'
 	Escribir 'Este es nuestro Menu'
 	Escribir ' '
 	Escribir 'HELADOS'
@@ -15,10 +15,11 @@ Algoritmo Menu_FacturaHeladeria
 	Escribir 'BEBIDAS FRIAS'
 	Escribir '9. MILKSHAKE .....................$3,00'
 	Escribir '10. JUGOS NATURALES...............$2,00'
-	Dimensionar prdt(10)// esto es un arreglo
+	// esto es un arreglo
+	Dimensionar prdt(10)
 	prdt[1] <- 1.5
-	prdt[2] <- 2.8 
-	prdt[3] <- 3.5
+	prdt[2] <- 2.8
+	prdt[3] <- 3.5 
 	prdt[4] <- 4.8
 	prdt[5] <- 1.5
 	prdt[6] <- 3.25
@@ -26,11 +27,13 @@ Algoritmo Menu_FacturaHeladeria
 	prdt[8] <- 2
 	prdt[9] <- 3
 	prdt[10] <- 2
-	total <- 0 //Variable para iniciar y guardar el precio de una cantidad de un producto.
+	// Variable para iniciar y guardar el precio de una cantidad de un producto.
+	total <- 0
+	Escribir 'Buenos días'
 	Repetir
-		Escribir 'Buenos días, ¿qué desea ordenar?'
+		Escribir '¿qué desea ordenar?'
 		Escribir 'Escriba el indice del producto'
-		Leer producto
+		Leer producto 
 		Escribir '¿Cuánto va a llevar?'
 		Leer cantidad
 		ProductoBuscado <- prdt[producto]
@@ -41,10 +44,9 @@ Algoritmo Menu_FacturaHeladeria
 		Leer pregunta
 	Hasta Que pregunta='no' O pregunta=' ' O pregunta=''
 	Escribir 'Su factura es:', total, '$'
-	// 4 cupone de descuentos a vase de un numero al azar
-	
-	Escribir 'Con motivo de la inauguración, ofrecemos descuentos de hasta el 97% dependiendo de su suerte.'
+	Escribir 'Por motivo de la inauguración, ofrecemos descuentos de hasta el 97% dependiendo de su suerte.'
 	Escribir ' A continuación, se presentan sus 4 descuentos disponibles.'
+	// 4 cupone de descuentos a vase de un numero al azar
 	Dimensionar descuento(4)
 	Para numeroA<-1 Hasta 4 Con Paso 1 Hacer
 		numeroB <- azar(9)+1
@@ -53,15 +55,15 @@ Algoritmo Menu_FacturaHeladeria
 	FinPara
 	Escribir 'Escoja uno de ellos:'
 	Leer cuponSeleccionado
-	Mientras cuponSeleccionado<>descuento[1] & cuponSeleccionado<>descuento[2] & cuponSeleccionado<>descuento[3] &cuponSeleccionado<>descuento[4] Hacer
+	Mientras cuponSeleccionado<>descuento[1] Y cuponSeleccionado<>descuento[2] Y cuponSeleccionado<>descuento[3] Y cuponSeleccionado<>descuento[4] Hacer
 		Escribir 'Ese valor no corresponde a un cupón de descuento asignado.'
 		Escribir 'Escriba un valor válido.'
 		Leer cuponSeleccionado1
-		cuponSeleccionado = cuponSeleccionado1
+		cuponSeleccionado <- cuponSeleccionado1
 	FinMientras
 	cuponDescuento <- cuponSeleccionado/100
 	descuentoTotal <- total*cuponDescuento
-	facturaTotal = total-descuentoTotal
-	Escribir 'Con su descuento del: ', cuponSeleccionado, '% su monto a pagar es:', facturaTotal, '$'
+	facturaTotal <- total-descuentoTotal
+	Escribir 'Su valor antiguo era: ', total ', con su descuento del: ', cuponSeleccionado, '% su monto a pagar es:', facturaTotal, '$'
 	Escribir 'Muchas gracias por su compra.'
 FinAlgoritmo
